@@ -8,6 +8,11 @@
 <body>
     <?PHP
         include 'dbConnect.php';
+        if(isset($_POST['edit']))
+        {
+            header('location:matchEdit.php');
+            exit();
+        }
         
         $sql="SELECT * FROM matches";
         $result=mysqli_query($conn,$sql);
@@ -37,17 +42,14 @@
                         <td>".$row['scoreTeamA']."</td>
                         <td>".$row['scoreTeamB']."</td>
                         <td>".$row['winningTeam']."</td>
-                        <td><form type='POST'><button type='submit' name='edit'>EDIT</button></form>";
+                        <td><form method='POST'><button type='submit' name='edit'>EDIT</button></form>";
 
                     echo "</tr>";
                 }
             echo "</table>";
         }
 
-        if(isset($_POST['edit']))
-        {
-            header('location:matchEdit.php');
-        }
+        
             
 
     ?>
