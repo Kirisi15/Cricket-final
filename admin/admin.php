@@ -37,7 +37,7 @@
                         <td>".$row['scoreTeamA']."</td>
                         <td>".$row['scoreTeamB']."</td>
                         <td>".$row['winningTeam']."</td>
-                        <td><form type='POST'><button type='button' name='edit'>EDIT</button></form>";
+                        <td><form type='POST'><button type='submit' name='edit'>EDIT</button></form>";
 
                     echo "</tr>";
                 }
