@@ -11,19 +11,25 @@
         <input type="text" name="scoreA"><br>
         <lable for="teamScoreB">Team B</lable>
         <input type="text" name="scoreB"><br>
-        <lable for="teamScoreB">Winning team</lable>
-        <select>
+        <lable for="winningTeam">Winning team</lable>
+        <select name="winningTeam">
             <option>Team A</option>
             <option>Team B</option>
         </select><br>
         <button type="submit" name="update">UPDATE</button>
     </form>
     <?php
-    include 'dbconnect';
+    include 'dbConnect.php';
+    
         $scoreA=$_POST['scoreA'];
         $scoreB=$_POST['scoreB'];
-        if(isset($_POST['update'])){
-            //$sql="UPDATE matches SET scoreTeamA=scoreA,scoreTeamB=scoreB WHERE;"
+        $winningTeam=$_POST['winningTeam'];
+        if(isset($_GET['id'])){
+            $id=$_GET['id'];
+            echo $id;
+            $sql="UPDATE matches SET scoreTeamA='$scoreA',scoreTeamB='$scoreB',winningTeam='$winningTeam'WHERE matchId='$id'";
+            mysqli_query($conn,$sql);
+            
         }
     ?>
 </body>

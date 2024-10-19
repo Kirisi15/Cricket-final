@@ -7,13 +7,7 @@
 </head>
 <body>
     <?PHP
-        include 'dbConnect.php';
-        if(isset($_POST['edit']))
-        {
-            header('location:matchEdit.php');
-            exit();
-        }
-        
+        include 'dbConnect.php';     
         $sql="SELECT * FROM matches";
         $result=mysqli_query($conn,$sql);
         if(mysqli_num_rows($result)>0)
@@ -31,6 +25,7 @@
                     <th>winningTeam</th>";
                 while($row=mysqli_fetch_assoc($result))
                 {
+                    $matchId=$row['matchId'];
                     echo "<tr>";
                     echo "<td>".$row['matchId']."</td>
                         <td>".$row['organizerId']."</td>
@@ -42,7 +37,7 @@
                         <td>".$row['scoreTeamA']."</td>
                         <td>".$row['scoreTeamB']."</td>
                         <td>".$row['winningTeam']."</td>
-                        <td><form method='POST'><button type='submit' name='edit'>EDIT</button></form>";
+                        <td><a href='matchEdit.php?id=$matchId><button type='submit' name='edit'>EDIT</button></form>";
 
                     echo "</tr>";
                 }
