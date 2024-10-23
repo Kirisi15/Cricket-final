@@ -10,7 +10,7 @@
 <?php
 include 'dbConnect.php';
 
-
+$teamPoints=array();
 $sql="SELECT * FROM team WHERE paymentStatus=1";
 $result=mysqli_query($conn,$sql);
 if(mysqli_num_rows($result))
@@ -26,8 +26,14 @@ if(mysqli_num_rows($result))
         {
             $count+=1;
         }
-        echo $teamUsername."-".$count."<br>";
+        array_push($teamPoints,"$count=>$teamUsername");
+
+        
+       // echo $teamUsername."-".$count."<br>";
     }
+    asort($teamPoints);
+    echo implode("<br>", $teamPoints);
+    echo $teamPoints[0];
    
 }
 ?>
