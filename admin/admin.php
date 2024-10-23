@@ -37,7 +37,7 @@
                         <td>".$row['scoreTeamA']."</td>
                         <td>".$row['scoreTeamB']."</td>
                         <td>".$row['winningTeam']."</td>
-                        <td><a href='matchEdit.php?id=$matchId><button type='submit' name='edit'>EDIT</button></form>";
+                        <td><a href='matchEdit.php?id=$matchId><button type='submit' name='edit'>EDIT</a></form>";
 
                     echo "</tr>";
                 }
