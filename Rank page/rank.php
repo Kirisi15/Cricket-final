@@ -11,6 +11,7 @@
 include 'dbConnect.php';
 
 $teamPoints=array();
+$sortedTeamPoints=array();
 $sql="SELECT * FROM team WHERE paymentStatus=1";
 $result=mysqli_query($conn,$sql);
 if(mysqli_num_rows($result))
@@ -32,8 +33,12 @@ if(mysqli_num_rows($result))
        // echo $teamUsername."-".$count."<br>";
     }
     asort($teamPoints);
+    
+    rsort($teamPoints);
+    
     echo implode("<br>", $teamPoints);
     echo $teamPoints[0];
+    
    
 }
 ?>
