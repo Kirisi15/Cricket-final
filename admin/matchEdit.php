@@ -39,7 +39,7 @@
             </form>";
     
     
-            if((isset($_POST['update']))){
+            if(isset($_POST['update'])){
                 echo "Hi";
                 $scoreA=$_POST['scoreA'];
                 $scoreB=$_POST['scoreB'];
