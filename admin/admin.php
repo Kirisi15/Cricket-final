@@ -7,6 +7,7 @@
 </head>
 <body>
     <?PHP
+    echo "<form method='post'action='addOrganizer.php'><button type='submit' name='addOrganizer'>Add Organizer</button></form>";
         include 'dbConnect.php';     
         $sql="SELECT * FROM matches";
         $result=mysqli_query($conn,$sql);
@@ -44,7 +45,9 @@
             echo "</table>";
         }
         echo "testing 2";
-
+        if (isset($_POST['register'])) {
+            header('location:addOrganizer.php')   ;   
+        }
         
             
 
