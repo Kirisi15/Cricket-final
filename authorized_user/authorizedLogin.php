@@ -6,7 +6,7 @@
         $username = $_POST['authorizedUsername'];
         $password = $_POST['authorizedPassword'];
 
-        $sql = "SELECT gmail, authorizedUsername, authorizedPassword FROM authorizeduser WHERE gmail ='$gmail' &&  authorizedUsername = '$username' && authorizedPassword = '$password'";
+        $sql = "SELECT authorizedUsername, authorizedPassword FROM authorizeduser WHERE authorizedUsername = '$username' && authorizedPassword = '$password'";
 
         $result=mysqli_query($conn,$sql);
         if($result){
@@ -34,8 +34,7 @@
 
     <form method = "POST" action = "">
 
-        <label for = "gmail" > Gmail: </label>
-        <input type = "email" name ="gmail" placeholder = "Enter your email" required><br><br>
+        
 
         <label for = "authorizedUsername" > Username : </label>
         <input type = "text" name ="authorizedUsername" placeholder="Enter user name" required><br><br>
