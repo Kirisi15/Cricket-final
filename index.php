@@ -13,13 +13,14 @@
         <ul class="navbar">
             <li><a href="#matches">Matches</a></li>
             <li><a href="#news">News</a></li>
-            <li><a href="rankings.php">Rankings</a></li>
+            <li><a href="../cricket final/rankPage/rank.php">Rankings</a></li>
+            <li><a href="../cricket final/teams/teams.php">Teams</a></li>
             <li class="dropdown">
                 <a href="#login">Login</a>
                 <ul class="dropdown-content">
-                    <li><a href="team-login.php">Team Login</a></li>
-                    <li><a href="admin-login.php">Admin Login</a></li>
-                    <li><a href="organizer-login.php">Organizer Login</a></li>
+                    <li><a href="../cricket final/authorized_user/authorizedLogin.php">Team Login</a></li>
+                    <li><a href="../cricket final/admin/adminLogin.php">Admin Login</a></li>
+                    <li><a href="../cricket final/organizer/organizerLogin.php">Organizer Login</a></li>
                 </ul>
             </li>
         </ul>
