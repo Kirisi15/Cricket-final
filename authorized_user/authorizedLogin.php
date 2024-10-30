@@ -2,7 +2,7 @@
     include 'dbConnect.php';
 
     if(isset($_POST['submit'])){
-        $gmail = $_POST['gmail'];
+        //$gmail = $_POST['gmail'];
         $username = $_POST['authorizedUsername'];
         $password = $_POST['authorizedPassword'];
 
