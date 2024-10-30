@@ -43,6 +43,7 @@
                 }
             echo "</table>";
         }
+        echo "testing 2";
 
         
             
