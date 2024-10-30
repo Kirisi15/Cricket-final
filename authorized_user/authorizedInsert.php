@@ -9,6 +9,7 @@
         $result=mysqli_query($conn,$sql);
         if($result){
             header("location:authorizedLogin.php");
+            echo "testing";
         }
 
     }
