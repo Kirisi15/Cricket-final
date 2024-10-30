@@ -6,12 +6,15 @@
         $username = $_POST['authorizedUsername'];
         $password = $_POST['authorizedPassword'];
 
-        $sql = "SELECT gmail, authorizedUsername, authorizedPassword FROM authorized_users WHERE gmail = $gmail &&  authorizedUsername = $username && authorizedPassword = $password";
+        $sql = "SELECT gmail, authorizedUsername, authorizedPassword FROM authorizeduser WHERE gmail ='$gmail' &&  authorizedUsername = '$username' && authorizedPassword = '$password'";
 
-        $result = $conn->query($sql);
-
-        if($result->num_rows() >0){
-            header("Location : teamRegistration.php");
+        $result=mysqli_query($conn,$sql);
+        if($result){
+       if(mysqli_num_rows($result)>0){
+            header("location:teamRegistration.php");
+        }}
+        else{
+            echo "Not successfully";
         }
 
     }

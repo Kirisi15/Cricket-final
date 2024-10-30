@@ -11,7 +11,7 @@
     <h1>Player Registration</h1>
 </head>
 <body>
-    <form method = "POST" action = "playerInsert.php">
+    <form enctype="multipart/form-data" method = "POST" action = "playerInsert.php" >
 
         <label for = "playerName" > Player Name : </label>
         <input type = "text" name ="playerName" placeholder = "Enter player name" required><br><br>

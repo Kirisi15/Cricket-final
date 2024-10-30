@@ -5,14 +5,11 @@
         $username = $_POST['authorizedUsername'];
         $password = $_POST['authorizedPassword'];
 
-        $sql = "INSERT INTO authorizeduser (gmail, authorizedUsername, authorizedPassword) VALUES ('$gmail', '$username', '$password')";
+        $sql = "INSERT INTO authorizeduser (gmail, authorizedUsername, authorizedPassword,teamId) VALUES ('$gmail', '$username', '$password',1)";
+        $result=mysqli_query($conn,$sql);
+        if($result){
+            header("location:authorizedLogin.php");
+        }
 
-        if($conn->query($sql) === true){
-            echo " inserted successfully";
-            header("location : authorizedLogin.php");
-        }
-        else{
-            echo " error";
-        }
     }
 ?>
