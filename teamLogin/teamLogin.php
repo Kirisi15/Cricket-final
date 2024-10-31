@@ -6,15 +6,15 @@
         $username = $_POST['teamUsername'];
         $password = $_POST['teamPassword'];
 
-        $sql = "SELECT authorizedUsername, authorizedPassword FROM authorizeduser WHERE authorizedUsername = '$username' && authorizedPassword = '$password'";
+        $sql = "SELECT * FROM team WHERE teamUsername = '$username' && teamPassword = '$password'";
 
         $result=mysqli_query($conn,$sql);
-        if($result){
+        
        if(mysqli_num_rows($result)>0){
             header("location:team.php");
-        }}
+        }
         else{
-            echo "Not successfully";
+            echo "Username/Password is incorrect";
         }
 
     }

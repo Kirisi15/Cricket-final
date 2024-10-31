@@ -14,6 +14,11 @@
         if(mysqli_num_rows($result)>0){
             echo "Username already exist";
         }
+        $sql="SELECT * FROM team WHERE teamName='$teamname'";
+        $result=mysqli_query($conn,$sql);
+        if(mysqli_num_rows($result)>0){
+            echo "Teamname already exist";
+        }
         else
         {
         
