@@ -15,10 +15,11 @@
             <li><a href="#news">News</a></li>
             <li><a href="../cricket final/rankPage/rank.php">Rankings</a></li>
             <li><a href="../cricket final/teams/teams.php">Teams</a></li>
+            <li><a href="../cricket final/teamRegister/teamRegistration.php">Register Team</a></li>
             <li class="dropdown">
                 <a href="#login">Login</a>
                 <ul class="dropdown-content">
-                    <li><a href="../cricket final/authorized_user/authorizedLogin.php">Team Login</a></li>
+                    <li><a href="../cricket final/teamLogin/teamLogin.php">Team Login</a></li>
                     <li><a href="../cricket final/admin/adminLogin.php">Admin Login</a></li>
                     <li><a href="../cricket final/organizer/organizerLogin.php">Organizer Login</a></li>
                 </ul>
