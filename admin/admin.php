@@ -43,11 +43,7 @@
                 }
             echo "</table>";
         }
-        echo "testing 2";
+?>
 
-        
-            
-
-    ?>
 </body>
 </html>
