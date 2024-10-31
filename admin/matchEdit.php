@@ -7,7 +7,6 @@
 </head>
 <body>
     <?php
-    
         include 'dbConnect.php';
         if(isset($_GET['id']))
         {
@@ -15,8 +14,6 @@
             echo $id;
             
         }
-    
-
         $sql="SELECT * FROM matches WHERE matchId='$id'";
         $result=mysqli_query($conn,$sql);
         $row=mysqli_fetch_assoc($result);
@@ -25,14 +22,14 @@
        
             echo "
             <form method='post'>
-                <label for='teamScoreA'>$teamIdA</lable>
+                <label for='teamScoreA'>".$teamIdA."</lable>
                 <input type='text' name='scoreA'><br>
-                <label for='teamScoreB'>$teamIdB</lable>
+                <label for='teamScoreB'>".$teamIdB."</lable>
                 <input type='text' name='scoreB'><br>
                 <label for='winningTeam'>Winning team</lable>
                 <select name='winningTeam'>
-                    <option>$teamIdA</option>
-                    <option>$teamIdB</option>
+                    <option>".$teamIdA."</option>
+                    <option>".$teamIdA."</option>
                     <option>Draw</option>
                 </select><br><br>
                 <button type='submit' name='update'>UPDATE</button>
