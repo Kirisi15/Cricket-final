@@ -1,5 +1,6 @@
 <?php
     include 'dbConnect.php';
+    include 'teamInsert.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,9 @@
 
         <input type="submit" name="submit" value="Register"> <br><br>
         
-        <a href="playerRegistration.php"> Add players </a>
+        <?php
+         echo"<a href='playerRegistration.php?teamname=$'".$teamname."'> Add players </a>"
+         ?>
     </form>
 </body>
 </html>
