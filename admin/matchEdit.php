@@ -26,8 +26,8 @@
        
             echo "
             <form method='post'>
-                TeamScoreA: <input type='text' name='scoreA' value = '".$scoreTeamA."'><br>
-                TeamScoreB: <input type='text' name='scoreB' value = '".$scoreTeamB."'><br>
+                ".$teamIdA.": <input type='text' name='scoreA' value = '".$scoreTeamA."'><br>
+                ".$teamIdB.": <input type='text' name='scoreB' value = '".$scoreTeamB."'><br>
                 
                 <select name='winningTeam'>
                     <option>".$teamIdA."</option>
@@ -45,6 +45,7 @@
                 $winningTeam=$_POST['winningTeam'];
                 $sql1="UPDATE matches SET scoreTeamA='$scoreA',scoreTeamB='$scoreB',winningTeam='$winningTeam' WHERE matchId='$id'";
                 mysqli_query($conn,$sql1);
+                header("location: admin.php");
             }
             
         
