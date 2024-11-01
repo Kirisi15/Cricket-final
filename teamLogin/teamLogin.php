@@ -9,9 +9,14 @@
         $sql = "SELECT * FROM team WHERE teamUsername = '$username' && teamPassword = '$password'";
 
         $result=mysqli_query($conn,$sql);
+
+        
         
        if(mysqli_num_rows($result)>0){
-            header("location:team.php");
+            $row=mysqli_fetch_assoc($result);
+            $teamName= $row['teamName'];
+            echo $teamName;
+            header("location:team.php?teamName=".urlencode($teamName));
         }
         else{
             echo "Username/Password is incorrect";
