@@ -6,7 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    <form method='post'><button name='addOrganizer'>Add Organizer</button></form>
     <?PHP
+    if (isset($_POST['addOrganizer'])) {
+        
+            header('location:addOrganizer.php')   ;         
+        
+    }
         include 'dbConnect.php';     
         $sql="SELECT * FROM matches";
         $result=mysqli_query($conn,$sql);
@@ -43,6 +49,7 @@
                 }
             echo "</table>";
         }
+       
 ?>
 
 </body>
