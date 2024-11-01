@@ -23,7 +23,7 @@
                 }
             }
         echo "<br>";
-        echo "<a href='playerRegistration.php?teamName=.$teamName.'> Add players </a>";
+        echo "<a href='playerRegistration.php?teamName=$teamName'> Add players </a>";
         }
     ?>
 </body>

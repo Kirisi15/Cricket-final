@@ -22,8 +22,15 @@
         <label for = "playerImage" > Player Image : </label>
         <input type = "file" name ="playerImage" required><br><br>
 
-        <label for = "teamName" > Team Name : </label>
-        <input type = "text" name ="teamName" placeholder = "Enter team name" required><br><br>
+        <?php if (isset($_GET['teamName']))
+         {
+            $teamName = $_GET['teamName'];
+            echo "
+                <label for = 'teamName' > Team Name : </label>
+                <input type = 'text' name ='teamName'value=$teamName placeholder = 'Enter team name' required><br><br>
+            ";
+        }
+        ?>
 
         <label for = "role" >Role : </label>
         <select name="role">
