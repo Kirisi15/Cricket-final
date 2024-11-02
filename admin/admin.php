@@ -1,3 +1,14 @@
+<?php
+    @session_start();
+
+    $adminId = $SESSION['adminId'];
+
+    if(!isset($adminId)){
+        header("location: adminLogin.php")
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

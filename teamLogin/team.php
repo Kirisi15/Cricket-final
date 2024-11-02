@@ -1,3 +1,13 @@
+<?php
+    @session_start();
+
+    $teamId = $_SESSION['teamId'];
+
+    if(!isset($teamId)){
+        header("location:teamLogin.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

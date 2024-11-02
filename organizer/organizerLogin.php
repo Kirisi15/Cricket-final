@@ -1,3 +1,7 @@
+<?php
+    @session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +43,10 @@
 
             if(mysqli_num_rows($result)>0)
             {
+                $row = mysqli_fetch_assoc($result);
+                
+                $_SESSION['teamId'] = $row['teamId'];
+                $_SESSION['teamUsername'] = $row['teamUsername'];
                 header('location:organizer.php')   ;         
             }
             else{

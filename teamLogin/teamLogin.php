@@ -1,4 +1,6 @@
 <?php
+    @session_start();
+    
     include 'dbConnect.php';
 
     if(isset($_POST['submit'])){
@@ -9,8 +11,15 @@
         $sql = "SELECT * FROM team WHERE teamUsername = '$username' && teamPassword = '$password'";
 
         $result=mysqli_query($conn,$sql);
+
         
-       if(mysqli_num_rows($result)>0){
+       if(mysqli_num_rows($result)>0){  
+        
+        $row = mysqli_fetch_assoc($result);
+                
+        $_SESSION['teamId'] = $row['teamId'];
+        $_SESSION['teamUsername'] = $row['teamUsername'];
+
             header("location:team.php");
         }
         else{
@@ -33,9 +42,6 @@
 <body>
 
     <form method = "POST" action = "">
-
-        
-
         <label for = "teamUsername" > Username : </label>
         <input type = "text" name ="teamUsername" placeholder="Enter user name" required><br><br>
 
@@ -43,9 +49,6 @@
         <input type = "password" name ="teamPassword" placeholder = "Enter password" required><br><br>
 
         <input type = "submit" name = "submit" value = "Login">
-
-        
-
     </form>
 </body>
 </html>

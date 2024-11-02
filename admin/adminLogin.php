@@ -1,3 +1,9 @@
+<?php
+    @session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +45,12 @@
 
             if(mysqli_num_rows($result)>0)
             {
+                $row = mysqli_fetch_assoc($result);
+                
+                $_SESSION['adminId'] = $row['adminId'];
+                $_SESSION['adminUsername'] = $row['adminUsername'];
+
+
                 header('location:admin.php')   ;         
             }
             else{

@@ -1,3 +1,12 @@
+<?php
+    @session_start();
+
+    $organizerId = $_SESSION['organizerId'];
+
+    if(!isset($teamId)){
+        header("location:organizerLogin.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
