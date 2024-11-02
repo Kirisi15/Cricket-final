@@ -16,11 +16,12 @@
        if(mysqli_num_rows($result)>0){  
         
         $row = mysqli_fetch_assoc($result);
+        $teamName=$row['teamName'];
                 
         $_SESSION['teamId'] = $row['teamId'];
         $_SESSION['teamUsername'] = $row['teamUsername'];
 
-            header("location:team.php");
+        header("Location: team.php?teamName=" . urlencode($teamName));
 
 
         }

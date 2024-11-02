@@ -1,0 +1,12 @@
+body{
+    background-image: url("../images/bg.jpeg");
+    background-size:auto;
+    
+}
+.logIn{
+    margin: 250px;
+    background-color: aliceblue;
+    height: 200px;
+    width:400px;
+    text-align: center;
+}

@@ -29,7 +29,9 @@
                 while($row=mysqli_fetch_assoc($result))
                 {
                     echo "<br>";
+                    echo "<img src='../teamLogin/upload_images/$row[playerImage].jpg'>";
                     echo $row['playerName'];
+                    
                 }
             }
         echo "<br>";
