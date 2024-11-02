@@ -15,16 +15,9 @@
 
             $sql="INSERT INTO organizer (organizerUsername,organizerPassword)
                     VALUES ('$username','$password')";
-            $result=mysqli_query($conn,$sql){
-                $row = mysqli_fetch_assoc($result);
-                
-                $_SESSION['organizerId'] = $row['organizerId'];
-                $_SESSION['organizerUsername'] = $row['organizerPassword'];
-            }
-            if($result) {
-                header("location:admin.php");
-            }
-        }  
+            $result=mysqli_query($conn,$sql);
+            header("location:admin.php");
+    }  
               
     ?>
     <form method="post">
