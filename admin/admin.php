@@ -4,7 +4,7 @@
     $adminId = $SESSION['adminId'];
 
     if(!isset($adminId)){
-        header("location: adminLogin.php")
+        header("location: adminLogin.php");
     }
 
 ?>
