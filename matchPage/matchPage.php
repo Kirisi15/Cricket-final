@@ -3,34 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar with Matches and Rankings</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Matches</title>
+    <link rel="stylesheet" href="matchPage.css">
 </head>
 <body>
-
-    <nav>
+<nav>
         <ul class="navbar">
-            <li><a href="../cricket final/matchPage/matchPage.php">Matches</a></li>
+            <li><a href="../matchPage/matchPage.php">Matches</a></li>
             <li><a href="#news">News</a></li>
-            <li><a href="../cricket final/rankPage/rank.php">Rankings</a></li>
-            <li><a href="../cricket final/teams/teams.php">Teams</a></li>
-            <li><a href="../cricket final/teamRegister/teamRegistration.php">Register Team</a></li>
+            <li><a href="../rankPage/rank.php">Rankings</a></li>
+            <li><a href="../teams/teams.php">Teams</a></li>
+            <li><a href="../teamRegister/teamRegistration.php">Register Team</a></li>
             <li class="dropdown">
                 <a href="#login">Login</a>
                 <ul class="dropdown-content">
-                    <li><a href="../cricket final/teamLogin/teamLogin.php">Team Login</a></li>
-                    <li><a href="../cricket final/admin/adminLogin.php">Admin Login</a></li>
-                    <li><a href="../cricket final/organizer/organizerLogin.php">Organizer Login</a></li>
+                    <li><a href="../teamLogin/teamLogin.php">Team Login</a></li>
+                    <li><a href="../admin/adminLogin.php">Admin Login</a></li>
+                    <li><a href="../organizer/organizerLogin.php">Organizer Login</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
-
-    <div id="matches">
-        <h1>Matches</h1>
-
-        <?php
+    
+<?php
         include 'dbConnect.php';
         $today = date('Y-m-d');
 
@@ -70,39 +65,7 @@
 
         $stmt->close();
         $stmtFinished->close();
-
-        $rankingsSql = "
-        SELECT 
-           team.teamName, 
-        COUNT(matches.winningTeam) AS wins
-        FROM 
-           team
-        LEFT JOIN 
-           matches ON team.teamName = matches.winningTeam
-        GROUP BY 
-           team.teamName
-        ORDER BY 
-           wins DESC
-        LIMIT 5
-        ";
-        $rankingsResult = mysqli_query($conn, $rankingsSql);
-
-        echo '<div class="rankings-group">';
-        echo '<h2>Top 5 Teams</h2>';
-        if (mysqli_num_rows($rankingsResult) > 0) {
-            $rank = 1;
-            while ($team = mysqli_fetch_assoc($rankingsResult)) {
-                echo '<p>' . $rank . '. ' . $team['teamName'] . ' - Wins: ' . $team['wins'] . '</p>';
-                $rank++;
-            }
-        } else {
-            echo '<p>No rankings available.</p>';
-        }
-        echo '</div>';
-
-        mysqli_close($conn);
         ?>
 
-    </div>
 </body>
 </html>
