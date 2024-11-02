@@ -18,7 +18,7 @@
 
         if($conn->query($sql)=== true){
             echo "inserted successfully";
-            header("Location: playerPage.php");
+            header("Location: teamLogin.php");
         }
         else{
             echo " error";
