@@ -16,6 +16,25 @@
     <title>Team</title>
 </head>
 <body>
-<a href='playerRegistration.php'> Add players </a>
+    <?php
+    include 'dbConnect.php';
+        if (isset($_GET['teamName'])) {
+            $teamName = $_GET['teamName'];
+            echo $teamName;
+            $sql="SELECT * FROM player WHERE teamName='$teamName' ";
+            $result=mysqli_query($conn,$sql);
+
+            if(mysqli_num_rows($result)>0)
+            {
+                while($row=mysqli_fetch_assoc($result))
+                {
+                    echo "<br>";
+                    echo $row['playerName'];
+                }
+            }
+        echo "<br>";
+        echo "<a href='playerRegistration.php?teamName=$teamName'> Add players </a>";
+        }
+    ?>
 </body>
 </html>
