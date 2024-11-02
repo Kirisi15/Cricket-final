@@ -16,7 +16,7 @@
             $sql="INSERT INTO organizer (organizerUsername,organizerPassword)
                     VALUES ('$username','$password')";
             $result=mysqli_query($conn,$sql);
-            header("location:admin.php");
+            header("location:admin.php"); 
     }  
               
     ?>
