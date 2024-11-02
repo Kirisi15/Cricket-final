@@ -5,6 +5,5 @@
     $db="cricket1";
 
     $conn=mysqli_connect($host,$username,$password,$db);
-    echo "Sucess";
 
 ?>
