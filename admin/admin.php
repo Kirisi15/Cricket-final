@@ -1,7 +1,7 @@
 <?php
     @session_start();
 
-    $adminId = $SESSION['adminId'];
+    $adminId = $_SESSION['adminId'];
 
     if(!isset($adminId)){
         header("location: adminLogin.php");
