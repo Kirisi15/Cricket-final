@@ -51,10 +51,15 @@ label {
     color: #555;
 }
 
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 12px;
+    padding: 12px 40px; /* Space for icons */
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
@@ -68,6 +73,14 @@ input[type="password"]:focus {
     outline: none;
     border-color: #6e8efb;
     box-shadow: 0 0 8px rgba(110, 142, 251, 0.4);
+}
+
+.input-container i {
+    position: absolute;
+    left: 12px; /* Position icon inside the input */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
 }
 
 button {

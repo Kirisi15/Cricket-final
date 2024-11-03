@@ -38,20 +38,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="reglogstyle.css">
-    <h1>Team Login</h1>
+    <link rel="stylesheet" href="teamLogin.css">
+    
 </head>
 
 <body>
+    <div class="logIn">
+    <h1>Team Login</h1>
+        <form method = "POST" action = "">
+            <label for = "teamUsername" > </label>
+            <input type = "text" name ="teamUsername" placeholder="Enter user name" required><br><br>
 
-    <form method = "POST" action = "">
-        <label for = "teamUsername" > Username : </label>
-        <input type = "text" name ="teamUsername" placeholder="Enter user name" required><br><br>
+            <label for = "teamPassword" > </label>
+            <input type = "password" name ="teamPassword" placeholder = "Enter password" required><br><br>
 
-        <label for = "teamPassword" > Password : </label>
-        <input type = "password" name ="teamPassword" placeholder = "Enter password" required><br><br>
-
-        <input type = "submit" name = "submit" value = "Login">
-    </form>
+            <input type = "submit" name = "submit" value = "Login">
+        </form>
+    </div>
 </body>
 </html>

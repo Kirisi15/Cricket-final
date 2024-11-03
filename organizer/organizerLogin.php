@@ -7,11 +7,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin login</title>
+    <title>Organizer login</title>
+    <link rel="stylesheet"href="organizerLogin.css">
 </head>
 <body>
     <form method="post">
-        <div class="">
+        <div class="logIn">
             <h2>Organizer Login</h2>
             <table>
                 <tr>
