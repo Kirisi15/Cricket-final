@@ -1,13 +1,18 @@
+<?php
+    @session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin login</title>
+    <title>Organizer login</title>
+    <link rel="stylesheet"href="organizerLogin.css">
 </head>
 <body>
     <form method="post">
-        <div class="">
+        <div class="logIn">
             <h2>Organizer Login</h2>
             <table>
                 <tr>
@@ -39,6 +44,10 @@
 
             if(mysqli_num_rows($result)>0)
             {
+                $row = mysqli_fetch_assoc($result);
+                
+                $_SESSION['teamId'] = $row['teamId'];
+                $_SESSION['teamUsername'] = $row['teamUsername'];
                 header('location:organizer.php')   ;         
             }
             else{
