@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation Bar with Matches and Rankings</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
     <header>
         <div class="navbar">
             <img src = "./images/logo1.png" alt = "Logo" class = "logo">
-
             <nav>
                 <ul>
                     <li><a href="../cricket final/index.php">Home</a></li>
@@ -30,7 +28,6 @@
                     </li>
                 <ul>
             <nav>
-            
         </div>
     </header>
 </body>
