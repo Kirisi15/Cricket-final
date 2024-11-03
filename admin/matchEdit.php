@@ -6,31 +6,49 @@
     <title>matchEdit</title>
 </head>
 <body>
-    <form method="post">
-        <lable for="teamScoreA">Team A</lable>
-        <input type="text" name="scoreA"><br>
-        <lable for="teamScoreB">Team B</lable>
-        <input type="text" name="scoreB"><br>
-        <lable for="winningTeam">Winning team</lable>
-        <select name="winningTeam">
-            <option>Team A</option>
-            <option>Team B</option>
-        </select><br>
-        <button type="submit" name="update">UPDATE</button>
-    </form>
     <?php
-    include 'dbConnect.php';
-    
-        $scoreA=$_POST['scoreA'];
-        $scoreB=$_POST['scoreB'];
-        $winningTeam=$_POST['winningTeam'];
-        if(isset($_GET['id'])){
+        include 'dbConnect.php';
+        if(isset($_GET['id']))
+        {
             $id=$_GET['id'];
-            echo $id;
-            $sql="UPDATE matches SET scoreTeamA='$scoreA',scoreTeamB='$scoreB',winningTeam='$winningTeam'WHERE matchId='$id'";
-            mysqli_query($conn,$sql);
+           
             
+        
+        $sql="SELECT * FROM matches WHERE matchId='$id'";
+        $result=mysqli_query($conn,$sql);
+        $row=mysqli_fetch_assoc($result);
+       
+        $teamIdA= $row['teamIdA'];
+        $scoreTeamA= $row['scoreTeamA'];
+    
+        $teamIdB=$row['teamIdB'];
+        $scoreTeamB = $row['scoreTeamB'];
+       
+            echo "
+            <form method='post'>
+                ".$teamIdA.": <input type='text' name='scoreA' value = '".$scoreTeamA."'><br>
+                ".$teamIdB.": <input type='text' name='scoreB' value = '".$scoreTeamB."'><br>
+                
+                <select name='winningTeam'>
+                    <option>".$teamIdA."</option>
+                    <option>".$teamIdB."</option>
+                    <option>Draw</option>
+                </select><br><br>
+                <button type='submit' name='update'>UPDATE</button>
+            </form>";
         }
+    
+            if(isset($_POST['update'])){
+                echo "Hi";
+                $scoreA=$_POST['scoreA'];
+                $scoreB=$_POST['scoreB'];
+                $winningTeam=$_POST['winningTeam'];
+                $sql1="UPDATE matches SET scoreTeamA='$scoreA',scoreTeamB='$scoreB',winningTeam='$winningTeam' WHERE matchId='$id'";
+                mysqli_query($conn,$sql1);
+                header("location: admin.php");
+            }
+            
+        
     ?>
 </body>
 </html>

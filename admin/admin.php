@@ -1,3 +1,14 @@
+<?php
+    @session_start();
+
+    $adminId = $_SESSION['adminId'];
+
+    if(!isset($adminId)){
+        header("location: adminLogin.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +17,13 @@
     <title>Document</title>
 </head>
 <body>
+    <form method='post'><button name='addOrganizer'>Add Organizer</button></form>
     <?PHP
+    if (isset($_POST['addOrganizer'])) {
+        
+            header('location:addOrganizer.php')   ;         
+        
+    }
         include 'dbConnect.php';     
         $sql="SELECT * FROM matches";
         $result=mysqli_query($conn,$sql);
@@ -37,16 +54,19 @@
                         <td>".$row['scoreTeamA']."</td>
                         <td>".$row['scoreTeamB']."</td>
                         <td>".$row['winningTeam']."</td>
-                        <td><a href='matchEdit.php?id=$matchId><button type='submit' name='edit'>EDIT</button></form>";
+                        <td><a href='matchEdit.php?id=".$matchId."'><button type='submit' name='edit'>EDIT</a></form>";
 
                     echo "</tr>";
                 }
             echo "</table>";
         }
-
+        echo "<form method='post'><button type='submit' name='logOut'>Log Out</button></form>";
+        if (isset($_POST['logOut'])) {
         
-            
+            header('location:../index.php')   ;         
+        }
+       
+?>
 
-    ?>
 </body>
 </html>

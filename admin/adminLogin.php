@@ -1,13 +1,20 @@
+<?php
+    @session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin login</title>
+    <link rel="stylesheet" href="adminLogin.css">
 </head>
 <body>
     <form method="post">
-        <div class="">
+        <div class="logIn">
             <h2>Admin Login</h2>
             <table>
                 <tr>
@@ -39,6 +46,12 @@
 
             if(mysqli_num_rows($result)>0)
             {
+                $row = mysqli_fetch_assoc($result);
+                
+                $_SESSION['adminId'] = $row['adminId'];
+                $_SESSION['adminUsername'] = $row['adminUsername'];
+
+
                 header('location:admin.php')   ;         
             }
             else{
