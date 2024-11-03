@@ -60,6 +60,11 @@
                 }
             echo "</table>";
         }
+        echo "<form method='post'><button type='submit' name='logOut'>Log Out</button></form>";
+        if (isset($_POST['logOut'])) {
+        
+            header('location:../index.php')   ;         
+        }
        
 ?>
 

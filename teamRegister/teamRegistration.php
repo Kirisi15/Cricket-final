@@ -35,9 +35,6 @@
 
         <input type="submit" name="submit" value="Register"> <br><br>
         
-        <?php
-         echo"<a href='playerRegistration.php?teamname=$'".$teamname."'> Add players </a>"
-         ?>
     </form>
 </body>
 </html>
