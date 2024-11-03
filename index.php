@@ -27,9 +27,9 @@
                     <li class="dropdown">
                     <a href="#login">Login</a>
                         <ul class="dropdown-content">
-                            <li><a href="../cricket final/teamLogin/teamLogin.php">Team Login</a></li>
-                            <li><a href="../cricket final/admin/adminLogin.php">Admin Login</a></li>
-                            <li><a href="../cricket final/organizer/organizerLogin.php">Organizer Login</a></li>
+                            <li><a href="../cricket-final/teamLogin/teamLogin.php">Team Login</a></li>
+                            <li><a href="../cricket-final/admin/adminLogin.php">Admin Login</a></li>
+                            <li><a href="../cricket-final/organizer/organizerLogin.php">Organizer Login</a></li>
                         </ul>
                     </li>
                 <ul>
