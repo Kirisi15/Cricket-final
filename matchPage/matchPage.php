@@ -7,23 +7,32 @@
     <link rel="stylesheet" href="matchPage.css">
 </head>
 <body>
-<nav>
-        <ul class="navbar">
-            <li><a href="../matchPage/matchPage.php">Matches</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="../rankPage/rank.php">Rankings</a></li>
-            <li><a href="../teams/teams.php">Teams</a></li>
-            <li><a href="../teamRegister/teamRegistration.php">Register Team</a></li>
-            <li class="dropdown">
-                <a href="#login">Login</a>
-                <ul class="dropdown-content">
-                    <li><a href="../teamLogin/teamLogin.php">Team Login</a></li>
-                    <li><a href="../admin/adminLogin.php">Admin Login</a></li>
-                    <li><a href="../organizer/organizerLogin.php">Organizer Login</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+
+<header>
+        <div class="navbar">
+            <img src = "../images/logo1.png" alt = "Logo" class = "logo">
+
+            <nav>
+                <ul>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../matchPage/matchPage.php">Matches</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="../rankPage/rank.php">Rankings</a></li>
+                    <li><a href="../teams/teams.php">Teams</a></li>
+                    <li><a href="../teamRegister/teamRegistration.php">Register Team</a></li>
+                    <li class="dropdown">
+                    <a href="#login">Login</a>
+                        <ul class="dropdown-content">
+                            <li><a href="../teamLogin/teamLogin.php">Team Login</a></li>
+                            <li><a href="../admin/adminLogin.php">Admin Login</a></li>
+                            <li><a href="../organizer/organizerLogin.php">Organizer Login</a></li>
+                        </ul>
+                    </li>
+                <ul>
+            <nav>
+            
+        </div>
+    </header>
     
 <?php
         include 'dbConnect.php';
