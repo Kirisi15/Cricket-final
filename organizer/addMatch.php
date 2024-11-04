@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>matchEdit</title>
+    <link rel="stylesheet"href="addMatch.css">
 </head>
 <body>
     <form method='post'>
@@ -34,12 +35,13 @@
                 <input type='date' name='date'>
                 <button type='submit' name='add'>Add</button></form>";
 
+                if($_SERVER['REQUEST_METHOD'] === 'POST'&&isset($_POST['add'])){
                 $team1=$_POST['team1'];
                 $team2=$_POST['team2'];
                 $venue=$_POST['venue'];
                 $date=$_POST['date'];
 
-                if(isset($_POST['add'])){
+                
                     $sql="INSERT INTO matches(organizerId,teamIdA,teamIdB,venue,date)
                     VALUE('10','$team1','$team2','$venue','$date')";
 
