@@ -15,9 +15,13 @@
                     <li><a href="../cricket final/index.php">Home</a></li>
                     <li><a href="../Cricket final/matchPage/matchPage.php">Matches</a></li>
                     <li><a href="#news">News</a></li>
-                    <li><a href="../cricket final/rankPage/rank.php">Rankings</a></li>
-                    <li><a href="../cricket final/teams/teams.php">Teams</a></li>
-                    <li><a href="../cricket final/teamRegister/teamRegistration.php">Register Team</a></li>
+
+                    <li><a href="Cricket-final/rankPage/rank.php">Rankings</a></li>
+
+                    <li><a href="team/teams.php">Teams</a></li>
+
+                    <li><a href="Cricket-final/teamRegister/teamRegistration.php">Register Team</a></li>
+
                     <li class="dropdown">
                     <a href="#login">Login</a>
                         <ul class="dropdown-content">
