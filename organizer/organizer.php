@@ -1,50 +1,33 @@
 <?php
-    @session_start();
+    // @session_start();
 
-    $organizerId = $_SESSION['organizerId'];
+    // $organizerId = $_SESSION['organizerId'];
 
-    if(!isset($teamId)){
-        header("location:organizerLogin.php");
-    }
+    // if(!isset($teamId)){
+    //     header("location:organizerLogin.php");
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Organizer</title>
+    <link rel="stylesheet" href="organizer.css">
 </head>
 <body>
-<header>
-        <div class="navbar">
-            <img src = "./images/logo1.png" alt = "Logo" class = "logo">
-
-            <nav>
-                <ul>
-                    <li><a href="../cricket final/index.php">Home</a></li>
-                    <li><a href="../Cricket final/matchPage/matchPage.php">Matches</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="../cricket final/rankPage/rank.php">Rankings</a></li>
-                    <li><a href="../cricket final/teams/teams.php">Teams</a></li>
-                    <li><a href="../cricket final/teamRegister/teamRegistration.php">Register Team</a></li>
-                    <li class="dropdown">
-                    <a href="#login">Login</a>
-                        <ul class="dropdown-content">
-                            <li><a href="../cricket final/teamLogin/teamLogin.php">Team Login</a></li>
-                            <li><a href="../cricket final/admin/adminLogin.php">Admin Login</a></li>
-                            <li><a href="../cricket final/organizer/organizerLogin.php">Organizer Login</a></li>
-                        </ul>
-                    </li>
-                <ul>
-            <nav>
-            
-        </div>
-    </header>
-    <form method='post'>
-        <button type="submit"name="addMatch">Add Match</button>
-    </form>
+    <div class="addMatch">
+        <form method='post'>
+            <button type="submit"name="addMatch">Add Match</button>
+        </form>
+    </div>
     <?PHP
         include 'dbConnect.php';
+        echo "<div class='logOut'><form method='post'><button type='submit' name='logOut'>Log Out</button></form></div>";
+        if (isset($_POST['logOut'])) {
+        
+            header('location:../index.php')   ;         
+        }
         if(isset($_POST['addMatch']))
         {
             header('location:addMatch.php');
@@ -85,6 +68,7 @@
                 }
             echo "</table>";
         }
+        
 ?>
 </body>
 </html>
