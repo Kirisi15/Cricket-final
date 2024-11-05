@@ -1,4 +1,4 @@
-/* playerRegistration.css */
+
 
 * {
     margin: 0;
@@ -12,31 +12,30 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #e0f7fa, #b3e5fc); /* Light blue gradient */
+    background: linear-gradient(135deg, #e0f7fa, #b3e5fc); 
     color: #333;
 }
 
 .register {
-    background-color: #ffffff; /* White background for the form */
+    background-color: #ffffff; 
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    width: 300px; /* Fixed width for the form */
+    width: 300px; 
     transition: transform 0.3s;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #0277bd; /* Dark blue for the header */
+    color: #0277bd; 
 }
 
 label {
     font-size: 14px;
     margin-bottom: 8px;
-    display: block; /* Make labels block to occupy full width */
-    color: #555; /* Dark gray for labels */
-}
+    display: block; 
+    color: #555; }
 
 input[type="text"],
 input[type="tel"],
@@ -44,8 +43,8 @@ input[type="file"],
 select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px; /* Space between inputs */
-    border: 1px solid #90caf9; /* Light blue border */
+    margin-bottom: 15px; 
+    border: 1px solid #90caf9; 
     border-radius: 8px;
     font-size: 14px;
     transition: border-color 0.3s, box-shadow 0.3s;
@@ -55,8 +54,8 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 select:focus {
     outline: none;
-    border-color: #0288d1; /* Darker blue on focus */
-    box-shadow: 0 0 5px rgba(2, 136, 209, 0.4); /* Blue shadow on focus */
+    border-color: #0288d1;
+    box-shadow: 0 0 5px rgba(2, 136, 209, 0.4); 
 }
 
 input[type="submit"] {
@@ -65,7 +64,7 @@ input[type="submit"] {
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
-    background-color: #0288d1; /* Blue color for the button */
+    background-color: #0288d1; 
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -73,9 +72,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #01579b; /* Darker blue on hover */
+    background-color: #01579b;
 }
 
 input[type="submit"]:active {
-    transform: translateY(1px); /* Slightly push down on click */
-}
+    transform: translateY(1px);}

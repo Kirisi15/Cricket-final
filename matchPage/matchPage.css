@@ -1,4 +1,4 @@
-/* matchPage.css */
+
 
 * {
     margin: 0;
@@ -14,7 +14,7 @@ body {
 }
 
 nav {
-    background-color: #283593; /* Dark blue for the nav */
+    background-color: #283593; 
     padding: 15px;
     border-radius: 8px;
 }
@@ -37,7 +37,7 @@ nav {
 }
 
 .navbar a:hover {
-    background-color: #1e88e5; /* Lighter blue on hover */
+    background-color: #1e88e5;
     color: #ffffff;
     border-radius: 4px;
 }
@@ -61,10 +61,10 @@ nav {
 }
 
 .dropdown-content a:hover {
-    background-color: #1e88e5; /* Lighter blue on hover */
+    background-color: #1e88e5;
 }
 
-/* Match display section */
+
 .match-group {
     margin-top: 30px;
     padding: 20px;
@@ -74,22 +74,22 @@ nav {
 }
 
 .match-group h2 {
-    color: #283593; /* Dark blue for headings */
+    color: #283593; 
     margin-bottom: 15px;
 }
 
 .match-group p {
     margin: 10px 0;
     padding: 10px;
-    border-left: 4px solid #283593; /* Blue left border for each match */
+    border-left: 4px solid #283593;
     background-color: #f9f9f9;
     transition: background 0.3s;
 }
 
 .match-group p:hover {
-    background-color: #e3f2fd; /* Light blue background on hover */
+    background-color: #e3f2fd; 
 }
-/* Basic Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -101,7 +101,7 @@ body {
     background-color: #f8f9fa;
 }
 
-/* Navbar styling */
+
 .navbar {
     display: flex;
     align-items: center;
@@ -122,7 +122,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Navigation menu */
+
 nav ul {
     list-style: none;
     display: flex;
@@ -149,7 +149,7 @@ nav ul li a:hover {
     color: #004a80;
 }
 
-/* Dropdown menu styling */
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -180,12 +180,12 @@ nav ul li a:hover {
     color: #004a80;
 }
 
-/* Show dropdown on hover */
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Logout button styling */
+
 .logout-button {
     display: flex;
     align-items: center;
@@ -205,7 +205,7 @@ nav ul li a:hover {
     height: 35px;
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
