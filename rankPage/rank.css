@@ -106,7 +106,7 @@ header {
     background-color: #ddd;
     border-radius: 0%;
 }
-/* rank.css */
+
 
 
 
@@ -145,7 +145,7 @@ table td {
     color: #555;
 }
 
-/* Responsive styling */
+
 @media (max-width: 768px) {
     table {
         width: 100%;

@@ -1,4 +1,4 @@
-/* teamLogin.css */
+
 
 * {
     margin: 0;
@@ -53,7 +53,7 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 12px;
-    padding-left: 40px; /* Create space for icons */
+    padding-left: 40px; 
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -61,18 +61,18 @@ input[type="password"] {
     color: #333;
     background-color: #f9f9f9;
     transition: border-color 0.3s, box-shadow 0.3s;
-    background-image: url('username-icon.png'), url('password-icon.png'); /* Placeholder for icons */
+    background-image: url('username-icon.png'), url('password-icon.png'); 
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 12px center;
 }
 
 input[type="text"] {
-    background-image: url('username-icon.png'); /* Placeholder for username icon */
+    background-image: url('username-icon.png');
 }
 
 input[type="password"] {
-    background-image: url('password-icon.png'); /* Placeholder for password icon */
+    background-image: url('password-icon.png');
 }
 
 input[type="text"]:focus,
