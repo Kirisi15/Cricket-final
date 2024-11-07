@@ -1,35 +1,20 @@
-*{
+* {
   margin: 0;
 }
 
-.logos{
 
-  display: flex;
-  flex-direction: row;
-  align-items:end;
 
-}
 
-.team-logos{
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 51px;
-  
-
-}
-
-.LPL2025{
-  color:  rgb(239, 196, 16);
+.LPL2025 {
+  color: rgb(239, 196, 16);
   font-family: Arial, Helvetica, sans-serif;
-  font-weight:900;
-  font-size: 35px;
-  
-  
+  font-weight: 900;
+  font-size: 25px;
+
+
 }
 
-.followUs{
+.followUs {
 
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -37,38 +22,114 @@
 
 }
 
-.year{
-  color:rgb(28, 6, 51);
+.year {
+  color: rgb(28, 6, 51);
 }
 
-.team-logos-and-LPL025{
+.left-part {
 
-display: flex;
-flex-direction:column;
-
-}
-
-.social-media{
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-
-.right-part{
-
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-right: 5px;
+  background-color: rgb(31, 78, 156);
+  padding-right: 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  overflow: hidden;
 
 }
 
-header{
-display: flex;
-align-items: center;
-justify-content: space-between;
-background:linear-gradient(to right, rgb(0, 119, 255),rgb(37, 37, 173));
-padding-bottom: 5px;
+
+.social-media {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+
+}
+
+.LPL-LOGO {
+
+  margin-top: 5px;
+
+}
+
+
+
+
+.nav-bar {
+  
+  display: flex;
+  list-style: none;
+  background: linear-gradient(to right, rgb(31, 78, 156), rgb(0, 96, 206), rgb(31, 78, 156));
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 30px;
+  padding-right:15px ;
+ 
+}
+
+@media(max-width:780px) {
+  .nav-bar {
+    display: none;
+  }
+}
+
+.nav-bar a {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f0ffff94;
+  font-weight: 700;
+
+}
+
+.nav-bar a:hover {
+  color: rgba(25, 57, 130, 0.845);
+  transition: 0.2s;
+
+}
+
+
+
+.right-part {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(31, 78, 156);
+  padding-top: 20px;
+  
+  padding-left: 10PX;
+  padding-right: 16PX;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+
+}
+
+header {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+
+}
+
+.middle-part{
+
+  display: flex;
+  
+  flex-direction: column;
+}
+
+.slc-logo{
+  margin-top: 15px;
+}
+
+.right-part a:hover{
+
+  opacity: 0.6;
+  transition: 0.3s;
 
 }
