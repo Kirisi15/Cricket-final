@@ -63,14 +63,7 @@
 
     }
 
-    .team-list {
-      list-style: none;
-      display: flex;
-     
-      align-items: center;
-      gap:20px;
 
-    }
 
     .team-logo-and-description{
       display: flex;
@@ -78,6 +71,98 @@
       align-items: center;
     }
 
+    .team-slide-show-container{
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 100px;
+      margin-bottom:100px;
+      justify-content: center;
+
+
+
+    }
+
+    .dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  margin-bottom:15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot:act{
+
+  background-color:rgb(0,0,0,0.3);
+
+}
+
+.next,.prev{
+
+  cursor: pointer;
+  border: none;
+  padding:10px;
+  background-color:white;
+  color: rgb(0, 119, 255);
+  font-size: x-large;
+  border-radius: 10px;
+  transition: 0.5s;
+
+
+}
+
+.next{
+  margin-left: 20px;
+ 
+}
+
+
+.prev:hover{
+  color:white;
+  background-color: rgb(0, 119, 255,0.5);
+}
+
+.next:hover{
+  color:white;
+  background-color: rgb(0, 119, 255,0.5);
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.slide-in-left {
+  transform: translateX(-100%); /* Start slide outside view on the left */
+  animation: slideLeft 0.5s forwards;
+}
+
+.slide-in-right {
+  transform: translateX(100%); /* Start slide outside view on the right */
+  animation: slideRight 0.5s forwards;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
  
 
@@ -149,8 +234,9 @@
 
   if (mysqli_num_rows($result) > 0) {
 
-    echo "<ul class='team-list'>";
+    echo "<div class='team-slide-show-container'>";
 
+    echo"  <button class='prev' onclick='pullSlides(1)'>&#10094;</button>";
 
     while ($row = mysqli_fetch_assoc($result)) {
 
@@ -160,7 +246,7 @@
 
         
 
-        echo "<li>";
+        echo "<div class='team-slide'>";
         echo "<div class='team-logo-and-description'>";
         echo "<div class='logo'>";
         echo "<a href='/Cricket-final/players/players.php?teamName=" . $row['teamName'] . "'>";
@@ -181,7 +267,7 @@
         echo "<video width='600' class='team-video' controls>
                     <source src='The roar that reaches from New York To Colombo.🔥Entering strong with colombostrikers at the lplt20 🐯.mp4' type='video/mp4'>
                   </video>
-        </li>
+        </div>
                   
                   ";
       } else if ($row['teamName'] === 'Jaffna Kings') {
@@ -189,7 +275,7 @@
 
         
 
-        echo "<li>";
+        echo "<div class='team-slide'>";
         echo "<div class='team-logo-and-description'>";
         echo "<div class='logo'>";
         echo "<a href='/Cricket-final/players/players.php?teamName=" . $row['teamName'] . "'>";
@@ -212,13 +298,13 @@
                     <source src='Vijayakanth Viyaskanth 3 Wickets .mp4' type='video/mp4'>
                   </video>
     
-        </li>
+        </div>
                   ";
       } else if ($row['teamName'] === 'Dambulla Thunders') {
 
         
 
-        echo "<li>";
+        echo "<div class='team-slide'>";
         echo "<div class='team-logo-and-description'>";
         echo "<div class='logo'>";
         echo "<a href='/Cricket-final/players/players.php?teamName=" . $row['teamName'] . "'>";
@@ -241,13 +327,13 @@
                     <source src='Chamindu Wickramasinghe .mp4' type='video/mp4'>
                   </video>
                   
-                  </li>
+                  </div>
                   ";
       } else if ($row['teamName'] === 'B-Love Kandy') {
 
         
 
-        echo "<li>";
+        echo "<div class='team-slide'>";
         echo "<div class='team-logo-and-description'>";
         echo "<div class='logo'>";
         echo "<a href='/Cricket-final/players/players.php?teamName=" . $row['teamName'] . "'>";
@@ -269,13 +355,13 @@
                   </video>
                   
   
-              </li>
+              </div>
                   ";
       } else if ($row['teamName'] === 'Galle Marvels') {
 
         
 
-        echo "<li>";
+        echo "<div class='team-slide'>";
         echo "<div class='team-logo-and-description'>";
         echo "<div class='logo'>";
         echo "<a href='/Cricket-final/players/players.php?teamName=" . $row['teamName'] . "'>";
@@ -298,20 +384,30 @@
                     <source src='Galle Kollo .mp4' type='video/mp4'>
                   </video>
                   
-              </li>     
+              </div>     
                   ";
       }
 
 
-      ;
-    }
+          }
 
-    echo "</ul>";
+          echo"<button class='next' onclick='pushSlides(1);'>&#10095;</button>";      
+
+    echo "</div>";
+
+    echo"<div style='text-align:center'>
+  <span class='dot' onclick='currentSlide(0)'></span>
+  <span class='dot' onclick='currentSlide(1)'></span>
+  <span class='dot' onclick='currentSlide(2)'></span>
+  <span class='dot' onclick='currentSlide(3)'></span>
+  <span class='dot' onclick='currentSlide(4)'></span>
+</div>";
   }
+
+  
 
   include "../footer/footer.php";
   ?>
-
 
 
 
@@ -404,6 +500,58 @@ Dasun Shanaka Leads Dambulla Thunders to LPL Final with 6-Wicket Win Over B-Love
 
     // Change image every 3 seconds
     setInterval(changeImage, 5000);
+  </script>
+
+  <script>
+
+ let slideIndex = 0;
+ showSlide(slideIndex);
+
+
+
+ function pushSlides(n){
+
+  slideIndex+=n;
+
+  showSlide(slideIndex);
+
+  document.getElementsByClassName('team-slide')[slideIndex].classList.add('slide-in-right');
+  
+ }
+
+ function currentSlide(n){
+
+    showSlide(slideIndex = n);
+
+ }
+
+ function pullSlides(n){
+
+showSlide(slideIndex-=n);
+
+}
+
+ function showSlide(n){
+
+ let i;
+ let slides = document.getElementsByClassName('team-slide');
+ let dots = document.getElementsByClassName("dot");
+
+ if(n>slides.length-1){slideIndex = 0}
+ if(n<0){slideIndex = slides.length-1}
+
+ for(i=0;i<slides.length;i++){
+  slides[i].style.display = 'none';
+ }
+
+ for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+slides[slideIndex].style.display = 'flex';
+dots[slideIndex].className += " active";
+
+ }
   </script>
 
 
