@@ -5,7 +5,11 @@ ul{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+<<<<<<< HEAD
   justify-content: center; /* Centers the items within the ul */
+=======
+  justify-content: center; 
+>>>>>>> 27f21e5b0118289312a058b014885e353b2acd64
       
   
   }
