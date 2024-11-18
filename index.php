@@ -34,5 +34,25 @@
             <nav>
         </div>
     </header>
+    <p id='lanka'>Lankan</p><br>
+    <p id='premier'>Premier</p><br>
+    <p id='league'>League</p><br>
+    <footer>
+        <table >
+            <tr>
+                <td><img src="../cricket final/images/SLC_LOGO.png"></td>
+                <td>
+                     <p>
+                    <strong>Sri Lankan Cricket</strong><br>
+                    Address:Sri Lanka Cricket<br>
+                    No.35.Maitland Place,<br>
+                    Colombo 07,Sri Lanka<br>
+                    </p>
+                </td>
+                <td>
+                    <p>📞 : +94112681601-4  </p>
+                    <p>✉ : SUPPORT@SRILANKACRICKET.LK</p>
+        </table>
+    </footer>
 </body>
 </html>

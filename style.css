@@ -12,7 +12,7 @@ body {
     background-image: url('./images/lpl_org1.avif');
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
+   
     background-size: cover;
 }
 
@@ -106,6 +106,28 @@ header {
     background-color: #ddd;
     border-radius: 0%;
 }
-
+footer{
+    background-color: #FFD700;
+    height: 140px;
+}
+table{
+    width:80%;
+}
+td{
+    padding: 10px;
+}
+#lanka{
+    color:rgb(205, 201, 246);
+    font-size:150px;
+}
+#premier{
+    font-size: 180px;
+    color:#FFD700;
+}
+#league{
+    font-size: 150px;
+    color:rgb(205, 201, 246);
+    
+}
 
 
