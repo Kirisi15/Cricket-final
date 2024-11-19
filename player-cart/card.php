@@ -2,200 +2,481 @@
 include "dbConnect.php";
 
 
-if(isset($_GET['playerId'])){
-  $playerId = $_GET['playerId'];
-}else{
-  echo"playerId is not set";
+if (isset($_GET['playerId'])) {
+    $playerId = $_GET['playerId'];
+} else {
+    echo "playerId is not set";
 }
 
-$sql="SELECT * FROM player WHERE playerId=$playerId";
-$result = mysqli_query($conn,$sql);
+$sql = "SELECT * FROM player WHERE playerId=$playerId";
+$result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
 $teamName = $row['teamName'];
 
-$sql_team="SELECT * FROM team WHERE teamName='$teamName'";
+$sql_team = "SELECT * FROM team WHERE teamName='$teamName'";
 
-$result_team = mysqli_query($conn,$sql_team);
+$result_team = mysqli_query($conn, $sql_team);
 $row_team = mysqli_fetch_assoc($result_team);
 
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="card-styles.css">
-  <style>
-       
-       body {
-            display: flex;                      
-            flex-direction: column;     
-            justify-content: space-between;    
-            min-height: 100vh;      
-            margin: 0;                          
-            background-image: url('<?php echo $row['cardBackgroundImage']; ?>');
-            background-size: cover;      
-            background-repeat: no-repeat; 
-            background-position: center;
-            background-color: white; 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player's Card</title>
+    <link rel="stylesheet" href="card-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        nav {
+            z-index: 100;
+            display: block;
+            top: 0;
+            position: fixed;
+            padding: 10px;
+            background-color: #2a3a83;
+            width: 100%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-
-        .batting-table, .bowling-table {
-           width: 100%;
-           margin: 5px;
-           
-          }
-
-          .batting-table tr, .bowling-table {
-           text-align: left; 
-           font-family:Arial, Helvetica, sans-serif;
-           font-size: 13px;
-          }
-
-          .table-topic{
-
-            background-color:<?php echo $row_team['color1']?> ;
-            border-radius: 10px;
-            
-          }
-
-          .cell{
-
-            background-color:<?php echo $row_team['color2']?> ;            
-            border-radius: 10px;
-            padding-left: 10px;            
-
-          }
-
-          .stat-table{
-
-            width:fit-content;
-          }
-
-         .player-description{
-          display: flex;
-          flex-direction:column;
-          align-items: center;
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-         }
-
-         .player-content {
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-direction: row;
-            justify-content:space-around;
-            align-items: center;            
-            padding: 20px;
-                                
+            justify-content: center;
         }
 
-        
+        .navbar li {
+            position: relative;
+        }
 
-         .player-image{
-          text-align: center;
-         }
+        .navbar li:hover {
+            background-color: #1d67a3;
+            border-radius: 10px;
 
-         .stat{
-          text-align: center;
-         }
+        }
 
-         .lpl{
-          color: rgb(60, 16, 66);
-          font-weight: bold;
-         }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
 
-         .l2025{
-            color:rgb(50, 50, 50,1)
-         }
+        .navbar a:hover {
+            color: #ffffff;
+        }
 
-         .lpl2025{
-          margin-top: -100px;
-          margin-bottom: 30px;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-         }
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            list-style-type: none;
+            display: none;
+            position: absolute;
+            background-color: #2a3a83;
+            min-width: 160px;
+            top: 100%;
+            z-index: 1;
+            padding: 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .dropdown-content li:hover {
+            background-color: #1d67a3;
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-align: center;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Mobile Navigation */
+        .nav-toggle {
+            display: none;
+        }
+
+
+
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 0;
+            }
+
+            .nav-toggle {
+                width: 96%;
+                margin: 0;
+                display: block;
+                background-color: #2a3a83;
+                color: #ffffff;
+                border: none;
+                padding: 0px;
+                font-size: 30px;
+                cursor: pointer;
+                text-align: left;
+            }
+
+            .nav-toggle:hover {
+                background-color: #2a3a83;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                display: none;
+                background-color: #2a3a83;
+                padding: 0;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .navbar li {
+                width: 96%;
+
+                border-bottom: 1px solid #1d67a3;
+            }
+
+            .navbar li:last-child {
+                border-bottom: none;
+            }
+
+            .navbar a {
+                width: 100%;
+                text-align: left;
+                margin: 0;
+            }
+
+            .dropdown-content {
+                left: 0;
+                transform: none;
+                width: 100%;
+            }
+
+            .dropdown-content a {
+                padding: 10px 20px;
+            }
+
+            .dropdown-content li:hover {
+                background-color: #1d67a3;
+                width: 100%;
+            }
+
+        }
+
+        body {
+            background-color: #edf5fe;
+            color: #333;
+        }
+
+
+
+
+        a {
+            color: #1d67a3;
+        }
+
+        a:hover {
+            color: #134b7f;
+        }
 
        
 
+
+        body {
+           
+            background-image: url('<?php echo $row['cardBackgroundImage']; ?>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            
+        }
+
+  
+.player-content {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+    
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 100px;
+}
+
+
+.team-logo {
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    background-color: #fff;
+    padding: 5px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.team-logo:hover {
+    transform: scale(1.1);
+}
+
+
+.player-image-and-description {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+}
+
+
+.player-image img {
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.player-image img:hover {
+    transform: scale(1.05);
+}
+
+
+.player-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    color: #2a3a83;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+}
+
+
+.player-name-and-role {
+    font-size: 26px;
+    color: #2a3a83;
+    margin: 0;
+    font-weight: bold;
+}
+
+.player-name-and-role span {
+    font-size: 18px;
+    color: #555;
+    display: block;
+    margin-top: 5px;
+}
+
+
+.player-description h2 {
+    font-size: 18px;
+    color: #2a3a83;
+    margin: 0;
+    font-weight: 500;
+}
+
+
+.player-description h3 {
+    font-size: 16px;
+    color: #2a3a83;
+    margin: 0;
+    font-style: italic;
+}
+
+
+@media (max-width: 768px) {
+    .player-image-and-description {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .player-description {
+        max-width: 100%;
+    }
+}
+
+
+.stat {
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px solid #2a3a83;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.stat-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+
+.stat-table th {
+    background-color: #2a3a83;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+
+.table-topic {
+    background-color: #364f9f;
+    color: white;
+    font-size: 16px;
+    padding: 8px;
+    text-transform: capitalize;
+}
+
+.stat-table td, .stat-table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+
+.stat-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+.batting-table td:hover {
+    background-color: #dbe3f5;
+}
+
+.bowling-table td:hover {
+    background-color: #dbe3f5;
+}
+
+
+.cell {
+    font-size: 14px;
+    color: #2a3a83;
+}
+
+
+.batting-table, .bowling-table {
+    width: 100%;
+    border: none;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+
+.batting-table td, .batting-table th,
+.bowling-table td, .bowling-table th {
+    border: 1px solid #ddd;
+}
+
+
+.batting-table, .bowling-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+footer {
+    background-color: #2a3a83; 
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin-top: -30px; 
+    display: flex;
+    justify-content: center;
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+}
+
+footer .footer-content p {
+    margin: 5px 0;
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #1d67a3;
+}
+
+
+ 
     </style>
 </head>
+
 <body>
-<header>
 
-<div class='logo'>
-  <img class='player-image' src='/Cricket-final/LPL-LOGO/LPL_LOGO.jpg' height=80px width=80px>
+    <?php
+  include "../header/header.php";
 
-  <div class='logos-LPL25'>
- 
-  <img class='logos' src='/Cricket-final/LPL-LOGO/logos.png' height=50px width=260px>
-   <ul class="topic"><li>LANKA</li>  <li>PREMIER</li> <li>LEAGUE</li> <li style="color:white;">2025</li></ul>
-
-  </div>
-
-</div>
-
-<div class="right-part">
-
-<span class="followUs">follow Us</span>
-
-<div class="social-media">
-
-<a href='https://x.com/LPLT20/status/1602578678139195393'><img class="x" src='/Cricket-final/social-media/x.png'></a>
-
-<a href='https://www.instagram.com/lplt20/reel/C8elNRZhvDT/'><img class="insta" src='/Cricket-final/social-media/insta.png'></a>
-
-<a href='https://web.facebook.com/LPLT20/'><img class="fb" src='/Cricket-final/social-media/fb.png' height=37></a>
-</div>
-
-<a href='https://srilankacricket.lk/'><img class='slc-logo' src='/Cricket-final/SLC-LOGO/SLC_LOGO.png' height=50px width=50px></a>
-
-</div>
-
-
-</header>
-
-
-<?php
-
-echo "
+    echo "
 <div class='main-part'>
 
-<div class='lpl2025'>
 
-<img src='http://localhost/Cricket-final/LPL-LOGO/lpl.png' width=100 height=100>
-
-<h1 class='lpl'>LANKA PREMIER LEAGUE</h1>
-
-<h1 class='l2025'> 2025</h1>
-
-</div>
 
 <div class='player-content'>
 
+ <img class='team-logo' src='/" . $row_team['teamLogo'] . "' width='150' height='150' alt='Team Logo'>
+
+<div class='player-image-and-description'
 <div class='player-image'>
 <img src='" . $row['cardPlayersImages'] . "' width='400' height='200'>
 
 
 <div class='player-description'>
-<h1 class='player-name-and-role'>".$row['playerName']."-".$row['role']."</h1>
-<h2>(".$row['country'].")</h2>
-<h3>Matches-".$row['matches']."</h3>
+<h1 class='player-name-and-role'>" . $row['playerName'] . "-" . $row['role'] . "</h1>
+<h2>(" . $row['country'] . ")</h2>
+<h3>Matches-" . $row['matches'] . "</h3>
 </div>
 
-</div>"
-;
+</div>
+</div>
+";
 
-echo "
+    echo "
 <div class='stat'>
 <table class='stat-table'>
     <tr>
         <th colspan='2' style='text-align: center;'>
-            <img src='/" . $row_team['teamLogo'] . "' width='300' height='200' alt='Team Logo'>
+             Player's Recordings
         </th>
     </tr>
     <tr>
@@ -248,42 +529,13 @@ echo "
 </div>
 </div>
 ";
-?>
 
 
+include "../footer/footer.php";
+
+    ?>
 
 
-
-
-
-
-<footer>
-
-<div class='footer-left-side'>
-<div class="slclogo">  
-<img src='/Cricket-final/SLC-LOGO/SLC_LOGO02.png' height=60 width=60>
-</div>
-<div class='contact-details'>
-<adress>
-ADDRESS:
-Sri Lanka Cricket
-No 35, Maitland Place,
-Colombo 07, Sri Lanka.</adress><br>
-
-<email>EMAIL: info@srilanka</email><br>
-<number>PHONE NUMBER: +94112681601-4</number><br>
-<fax>FAX: +94112697405</fax>
-</div>
-</div>
-
-<div class='src'><p>©SriLankaCricket</p></div>
-
-<div class='sponser'>
-  <img src='/Cricket-final/SPONSERS-LOGO/itw.png' height=30 width=50></sponser>
-  <img src='/Cricket-final/SPONSERS-LOGO/suquick.png' height=30px width=50px></sponser>
-  <img src='/Cricket-final/SPONSERS-LOGO/sony.png' height=30 width=35>
-</div>
-
-</footer>
 </body>
+
 </html>

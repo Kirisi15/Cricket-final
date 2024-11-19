@@ -4,11 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Teams</title>
+
+  
+<link rel="stylesheet" href="../header/header-styles.css">
+<link rel="stylesheet" href="teams-styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
   <style>
     .main-image-container {
-      margin-top: 50px;
+      margin-top: 100px;
       position: relative;
       margin-right: 40px;
       margin-left: 40px;
@@ -66,22 +72,40 @@
 
 
     .team-logo-and-description{
+      gap:5px;
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-right: 5px;
+      flex: 1;
     }
 
+    .team-slide-show-without-dots{
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .team-slide{
+      display: flex;
+      justify-content: space-between;
+    }
     .team-slide-show-container{
 
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-top: 100px;
+      flex-direction: column;
+      margin-top: 50px;
       margin-bottom:100px;
-      justify-content: center;
-
-
-
+      align-items: center;
+      background: linear-gradient(to bottom, #2a3a83, #7270e6);
+      padding-top: 30px;
+      padding-bottom: 15px;
+      margin-left: 5px;
+      margin-right: 5px;
+      border-radius: 10px;
+      
     }
 
     .dot {
@@ -102,13 +126,17 @@
 
 }
 
+.dots{
+  margin-top: 20px;
+}
+
 .next,.prev{
 
   cursor: pointer;
   border: none;
   padding:10px;
   background-color:white;
-  color: rgb(0, 119, 255);
+  color: #2a3a83;
   font-size: x-large;
   border-radius: 10px;
   transition: 0.5s;
@@ -124,25 +152,42 @@
 
 .prev:hover{
   color:white;
-  background-color: rgb(0, 119, 255,0.5);
+  background-color: #2a3a83;
 }
 
 .next:hover{
   color:white;
-  background-color: rgb(0, 119, 255,0.5);
+  background-color: #2a3a83;
 }
 
 .active, .dot:hover {
   background-color: #717171;
 }
 
+.team-video{
+max-width: 600px;
+
+
+}
+@media (max-width: 950px) {
+  .team-video {
+   max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-video {
+   max-width: 180px;
+  }
+}
+
 .slide-in-left {
-  transform: translateX(-100%); /* Start slide outside view on the left */
+  transform: translateX(-100%); 
   animation: slideLeft 0.5s forwards;
 }
 
 .slide-in-right {
-  transform: translateX(100%); /* Start slide outside view on the right */
+  transform: translateX(100%); 
   animation: slideRight 0.5s forwards;
 }
 
@@ -190,15 +235,219 @@
         transform: translateX(0);
         opacity: 1;
       }
-    }
-  </style>
 
+    }
+
+    nav {
+  z-index: 100;
+  display: block; 
+  top: 0;
+  position: fixed;
+  padding: 10px;
+  background-color: #2a3a83;
+  width: 100%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; 
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar li:hover {
+  background-color: #1d67a3;
+  border-radius: 10px;
+  
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: block;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  list-style-type: none;
+  display: none; 
+  position: absolute;
+  background-color: #2a3a83;
+  min-width: 160px;
+  top: 100%;
+  z-index: 1;
+  padding: 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.dropdown-content li:hover {
+  background-color: #1d67a3;
+}
+
+.dropdown-content a {
+  color: #ffffff;
+  padding: 12px 16px;
+  text-align: center;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.nav-toggle {
+  display: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .nav{
+      padding: 0;
+  }
+  .nav-toggle {
+      width: 96%;
+      margin: 0;
+      display: block;
+      background-color: #2a3a83;
+      color: #ffffff;
+      border: none;
+      padding: 0px;
+      font-size: 30px;
+      cursor: pointer;
+      text-align: left;
+  }
+  .nav-toggle:hover {
+      background-color: #2a3a83;
+  }
+
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      display: none;
+      background-color: #2a3a83;
+      padding: 0;
+  }
+
+  .navbar.active {
+      display: flex;
+  }
+
+  .navbar li {
+      width: 96%;
+
+      border-bottom: 1px solid #1d67a3;
+  }
+
+  .navbar li:last-child {
+      border-bottom: none;
+  }
+
+  .navbar a {
+      width: 100%;
+      text-align: left;
+      margin: 0;
+  }
+
+  .dropdown-content {
+      left: 0;
+      transform: none;
+      width: 100%;
+  }
+
+  .dropdown-content a {
+      padding: 10px 20px;
+  }
+  .dropdown-content li:hover {
+      background-color: #1d67a3;
+      width: 100%;
+  }
+
+}
+
+body{
+  background-color: #edf5fe;
+  color: #333;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #2a3a83;
+}
+
+a {
+    color: #1d67a3;
+}
+
+a:hover {
+    color: #134b7f;
+}
+
+footer {
+    background-color: #2a3a83; 
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin-top: -30px; 
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .footer-content p {
+    margin: 5px 0;
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #1d67a3;
+}
+
+.dots{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+  </style>
 
 </head>
 
-<link rel="stylesheet" href="../header/header-styles.css">
-<link rel="stylesheet" href="teams-styles.css">
-<link rel="stylesheet" href="../footer/footer-styles.css">
+
 
 <body>
 
@@ -236,6 +485,8 @@
 
     echo "<div class='team-slide-show-container'>";
 
+    echo"<div class='team-slide-show-without-dots'>";
+
     echo"  <button class='prev' onclick='pullSlides(1)'>&#10094;</button>";
 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -254,7 +505,7 @@
         echo "</a>";
         echo "</div>
           
-                  <div class='team-description' style='background: linear-gradient(to right,rgb(46, 0, 78,0.7), rgb(255, 0, 255,0.5));'>
+                  <div class='team-description' style='background: #2a3a83'>
                   A powerhouse team from Sri Lanka's capital, Colombo Strikers are known for their aggressive gameplay and strong batting lineup. They have a rich history in the Lanka Premier League (LPL) and are fan favorites for their high-energy performances.
                   </div>
           
@@ -264,7 +515,7 @@
 
 
 
-        echo "<video width='600' class='team-video' controls>
+        echo "<video width='600' class='team-video' controls autoplay poster='colombo-thumbnail.avif'>
                     <source src='The roar that reaches from New York To Colombo.🔥Entering strong with colombostrikers at the lplt20 🐯.mp4' type='video/mp4'>
                   </video>
         </div>
@@ -284,7 +535,7 @@
         echo "</div>
           
                          
-              <div class='team-description' style='background: linear-gradient(to right,rgb(0,255,127), rgb(233,192,103,0.5));' >
+              <div class='team-description' style='background: #2a3a83' >
 
               Jaffna Kings are a dominant force in the LPL, known for their solid team structure and exceptional performances in both batting and bowling. With a fierce determination, they are a favorite for many fans, always putting on thrilling displays.
 
@@ -294,9 +545,9 @@
 
         echo "</div>";
 
-        echo "<video width='600' class='team-video' controls>
+        echo "<video width='600' class='team-video' controls autoplay poster='jaffna-thumbnail.jpg'>
                     <source src='Vijayakanth Viyaskanth 3 Wickets .mp4' type='video/mp4'>
-                  </video>
+                  </video>cf
     
         </div>
                   ";
@@ -313,7 +564,7 @@
         echo "</div>
 
                
-   <div class='team-description' style='background: linear-gradient(to right,rgb(227,59,19), rgb(255,255,1,0.5));'>
+   <div class='team-description' style='background: #2a3a83'>
 
               Representing the heart of Sri Lanka, Dambulla Thunders are known for their strong bowling attack and solid all-rounders. With a mix of youth and experience, they are a formidable team in the LPL, always fighting hard for victory.
 
@@ -323,7 +574,7 @@
 
 ";
 
-        echo "<video width='600' class='team-video' controls>
+        echo "<video width='600' class='team-video' controls autoplay poster='dambulla-thumbnail.jpeg'>
                     <source src='Chamindu Wickramasinghe .mp4' type='video/mp4'>
                   </video>
                   
@@ -342,7 +593,7 @@
         echo "</div>
 
                
-              <div class='team-description' style='background: linear-gradient(to right,rgb(167,99,27), rgb(233,192,103,0.5));'>
+              <div class='team-description' style='background: #2a3a83'>
 
               B-Love Kandy is a team full of passion and flair, representing Kandy with pride. Known for their aggressive batting and strong leadership, they aim to make a mark in every LPL season, captivating fans with their exciting cricketing style.
 
@@ -350,7 +601,7 @@
           </div>
 ";
 
-        echo "<video width='600' class='team-video' controls>
+        echo "<video width='600' class='team-video' controls autoplay poster='kandy-thumbnail.jpg'>
                     <source src='B-Love Kandy LPL 2023 .mp4' type='video/mp4'>
                   </video>
                   
@@ -370,7 +621,7 @@
         echo "</div>
 
                
-              <div class='team-description' style='background: linear-gradient(to right,rgb(17,18,19), rgb(151,252,1,0.5));'>
+              <div class='team-description' style='background: #2a3a83'>
 
                Hailing from the coastal city of Galle, this team is known for their strategic approach and balanced squad. The Galle Marvels have a mix of experienced international players and emerging talent, making them an exciting team to watch.
 
@@ -380,7 +631,7 @@
               </div>
 ";
 
-        echo "<video width='600' class='team-video' controls>
+        echo "<video width='600' class='team-video' controls autoplay poster='galle-thumbnail.jpg'>
                     <source src='Galle Kollo .mp4' type='video/mp4'>
                   </video>
                   
@@ -391,17 +642,21 @@
 
           }
 
-          echo"<button class='next' onclick='pushSlides(1);'>&#10095;</button>";      
+          echo"<button class='next' onclick='pushSlides(1);'>&#10095;</button>"; 
+          
+          echo"</div>";
+          
+          echo"<div class='dots' style='text-align:center'>
+          <span class='dot' onclick='currentSlide(0)'></span>
+          <span class='dot' onclick='currentSlide(1)'></span>
+          <span class='dot' onclick='currentSlide(2)'></span>
+          <span class='dot' onclick='currentSlide(3)'></span>
+          <span class='dot' onclick='currentSlide(4)'></span>
+        </div>";
 
     echo "</div>";
 
-    echo"<div style='text-align:center'>
-  <span class='dot' onclick='currentSlide(0)'></span>
-  <span class='dot' onclick='currentSlide(1)'></span>
-  <span class='dot' onclick='currentSlide(2)'></span>
-  <span class='dot' onclick='currentSlide(3)'></span>
-  <span class='dot' onclick='currentSlide(4)'></span>
-</div>";
+
   }
 
   
