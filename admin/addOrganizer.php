@@ -24,6 +24,7 @@
             if($result) {
                 header("location:admin.php");
             }
+            echo "Hello";
          
               
     ?>

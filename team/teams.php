@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<<<<<<< HEAD
 <style>
 
 body {
@@ -37,18 +36,14 @@ margin:0;
 }
 
 </style>
-=======
 <link rel="stylesheet" href="teams-style.css">
->>>>>>> 27f21e5b0118289312a058b014885e353b2acd64
 
 <body>
 
   <header>
 
-<<<<<<< HEAD
 
 
-=======
   <div class='logo'>
     <img src='/Cricket-final/LPL-LOGO/LPL_LOGO.jpg' height=80px width=80px>
  
@@ -78,7 +73,6 @@ margin:0;
 
 
 </div>
->>>>>>> 27f21e5b0118289312a058b014885e353b2acd64
 
 
   </header>
@@ -93,11 +87,8 @@ $result = mysqli_query($conn,$sql);
 
 if(mysqli_num_rows($result)>0){
 
-<<<<<<< HEAD
   echo"<ul class='logo-list'";
-=======
   echo"<ul class='logo-list'>";
->>>>>>> 27f21e5b0118289312a058b014885e353b2acd64
 
   while ($row = mysqli_fetch_assoc($result)) {
 echo"<li>";   
@@ -117,8 +108,6 @@ echo "</ul>";
 
 ?>
 
-<<<<<<< HEAD
-=======
 <footer>
 
 <div class='footer-left-side'>
@@ -172,7 +161,6 @@ const images = [
 
 
  </script> 
->>>>>>> 27f21e5b0118289312a058b014885e353b2acd64
 
 </body>
 </html>
